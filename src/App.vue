@@ -1,16 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div>
+  <h1>{{ title }}</h1>
+  <ButtonMain @click="incriment">Enter</ButtonMain>
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import  ButtonMain  from './components/Button/Button-main.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    ButtonMain
+  },
+  data() {
+    return {
+      amountOfClicks: 0
+    }
+  },
+  computed: {
+    title() {
+      return `amount of clicks ${this.amountOfClicks}`
+    }
+  },
+  methods: {
+    incriment() {
+      this.amountOfClicks += 1
+    }
+  },
 }
 </script>
 
